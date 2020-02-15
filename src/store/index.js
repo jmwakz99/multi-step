@@ -108,12 +108,56 @@ export default new Vuex.Store({
             'Wundanyi',
             'Yala'
         ],
+        details: {},
+        alert: false
     },
-    mutations: {},
-    actions: {},
+    mutations: {
+        setDetails(state, payload) {
+            state.details = payload
+
+
+        },
+        setAlert(state, payload) {
+            state.alert = payload
+
+
+        }
+    },
+    actions: {
+        displayDetails({ commit }, payload) {
+            let details = {};
+            details.firstName = payload.firstName
+            details.lastName = payload.lastName
+            details.email = payload.email
+            details.phoneNumber = payload.phoneNumber
+            details.identificationNumber = payload.identificationNumber
+            details.companyName = payload.companyName
+            details.town = payload.town
+            details.kraPin = payload.kraPin
+            details.companyRevenue = payload.companyRevenue
+            commit('setDetails', details)
+            commit('setAlert', true)
+
+
+
+        },
+        clearAlert({ commit }) {
+            commit('setAlert', false)
+
+        }
+
+    },
     getters: {
+        details(state) {
+            return state.details
+
+        },
         towns(state) {
             return state.towns
+
+        },
+        alert(state) {
+            return state.alert
 
         }
     },

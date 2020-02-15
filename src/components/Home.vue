@@ -211,7 +211,7 @@ export default {
         this.snackbar = true;
       }
       console.log(this.fullInformation);
-      this.$store.dispatch("details", this.fullInformation);
+      this.$store.dispatch("displayDetails", this.fullInformation);
       this.$router.push("/details");
     }
   }
