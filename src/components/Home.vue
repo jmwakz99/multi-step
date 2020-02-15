@@ -5,7 +5,6 @@
         <v-form ref="form" v-model="valid" :lazy-validation="lazy">
           <v-stepper v-model="e6" vertical>
             <v-stepper-step :complete="e6 > 1" step="1">Personal Details</v-stepper-step>
-
             <v-stepper-content step="1">
               <v-card color="lighten-1">
                 <v-container>
@@ -57,7 +56,6 @@
             </v-stepper-content>
 
             <v-stepper-step :complete="e6 > 2" step="2">Legal Identification Details</v-stepper-step>
-
             <v-stepper-content step="2">
               <v-card color="lighten-1">
                 <v-container>
@@ -88,7 +86,6 @@
             </v-stepper-content>
 
             <v-stepper-step :complete="e6 > 3" step="3">Company Details</v-stepper-step>
-
             <v-stepper-content step="3">
               <v-card color="lighten-1" class="mb-12">
                 <v-container>
@@ -172,7 +169,6 @@ export default {
       v => !!v || "Name is required",
       v => (v && v.length <= 10) || "Name must be less than 10 characters"
     ],
-    email: "",
     emailRules: [
       v => !!v || "E-mail is required",
       v => /.+@.+\..+/.test(v) || "E-mail must be valid"
@@ -210,11 +206,11 @@ export default {
       if (this.$refs.form.validate()) {
         this.snackbar = true;
       }
-      console.log(this.fullInformation);
+
       this.$store.dispatch("displayDetails", this.fullInformation);
       this.$router.push("/details");
     }
   }
 };
 </script>
-<style scoped></style>
+

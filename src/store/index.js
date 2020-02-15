@@ -114,13 +114,9 @@ export default new Vuex.Store({
     mutations: {
         setDetails(state, payload) {
             state.details = payload
-
-
         },
         setAlert(state, payload) {
             state.alert = payload
-
-
         }
     },
     actions: {
@@ -137,29 +133,20 @@ export default new Vuex.Store({
             details.companyRevenue = payload.companyRevenue
             commit('setDetails', details)
             commit('setAlert', true)
-
-
-
         },
         clearAlert({ commit }) {
             commit('setAlert', false)
-
         }
-
     },
     getters: {
         details(state) {
             return state.details
-
         },
         towns(state) {
             return state.towns
-
         },
         alert(state) {
             return state.alert
-
         }
-    },
-    modules: {}
+    }
 })
